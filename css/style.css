@@ -72,6 +72,22 @@ img {
   height: auto;
 }
 
+.progress {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .progress {
+    display: block;
+    position: fixed;
+    top: 0;
+    height: 5px;
+    width: 0;
+    background-color: #ff0027;
+    z-index: 999;
+  }
+}
+
 .big-title {
   margin: 0;
   width: 100%;

@@ -48,8 +48,19 @@ function findHeight() {
 }
 
 function animation() {
+  gsap.registerPlugin(ScrollTrigger);
+
   function animSmall() {
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.to(".progress", {
+      width: "100%",
+      scrollTrigger: {
+        trigger: "body",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: true,
+      },
+    });
+
     const tlPromo = gsap.timeline({});
     tlPromo
       .to(".promo__title span:first-child", {
@@ -124,17 +135,37 @@ function animation() {
     const tlPoint = gsap.timeline({
       scrollTrigger: {
         trigger: ".point",
-        start: "top center",
+        start: "top 20%",
         toggleActions: "play reverse play reverse  ",
         end: "bottom bottom",
       },
     });
 
     tlPoint
-      .to(".point", {
+      .to("body", {
         duration: 1,
         backgroundColor: "#000",
       })
+      .to(
+        ".plus-block__title span:last-child",
+        {
+          duration: 1,
+          color: "#fff",
+        },
+        "<"
+      )
+      .to(
+        ".plus-block__text",
+        {
+          duration: 1,
+          color: "#fff",
+        },
+        "<"
+      )
+      // .to(".point", {
+      //   duration: 1,
+      //   backgroundColor: "#000",
+      // })
       .to(
         ".point__title",
         {
@@ -305,6 +336,7 @@ function animation() {
     const tlPoint = gsap.timeline({
       scrollTrigger: {
         trigger: ".point",
+        // start: "top center",
         start: "top center",
         toggleActions: "play reverse play reverse  ",
         end: "bottom bottom",
@@ -313,10 +345,39 @@ function animation() {
     });
 
     tlPoint
-      .to(".point", {
+      //здесь полоска между блоками
+      // .to(".point", {
+      //   duration: 1,
+      //   backgroundColor: "#000",
+      // })
+      // .to(
+      //   ".plus",
+      //   {
+      //     duration: 1,
+      //     backgroundColor: "#000",
+      //   },
+      //   "<"
+      // )
+      .to("body", {
         duration: 1,
         backgroundColor: "#000",
       })
+      .to(
+        ".plus-block__title span:last-child",
+        {
+          duration: 1,
+          color: "#fff",
+        },
+        "<"
+      )
+      .to(
+        ".plus-block__text",
+        {
+          duration: 1,
+          color: "#fff",
+        },
+        "<"
+      )
       .to(
         ".point__title",
         {
