@@ -793,6 +793,14 @@ img {
 }
 
 @media (max-width: 1024px) {
+  .plus {
+    height: auto;
+  }
+
+  .plus__wrapper {
+    flex-direction: column;
+  }
+
   .plus-block__text {
     height: auto;
   }
